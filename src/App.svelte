@@ -1,5 +1,10 @@
 <script>
 import Word from './lib/Word.svelte';
+import { jisho, get_json } from './lib/xml-parse.js'
+
+get_json();
+
+console.log(jisho)
 
 let words = [];
 
