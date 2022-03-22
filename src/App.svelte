@@ -1,27 +1,28 @@
 <script>
 import Word from './lib/Word.svelte';
-import { jisho, get_json } from './lib/xml-parse.js'
 
-get_json();
+// console.log(jisho.words[0].kana[0]);
 
-console.log(jisho)
+// let jisho1 = [];
 
-let words = [];
+// for (let i = 0; i < 10; i++) {
+//   jisho1[i] = jisho.words[i];
+// }
 
-for (let index = 0; index < 500; index++) {
-  words[index] = {word: index, description: 'jhkhsoie clkhsowdn'};
-}
+// console.log(jisho1);
+
+
+// let words = [];
+
+// for (let index = 0; index < 500; index++) {
+//   words[index] = {word: index, description: 'jhkhsoie clkhsowdn'};
+// }
 </script>
 
 
 <div class="header">Japanese Jisho</div>
 <div class="grid">
-  {#each words as word}
-    <svelte:component this={Word}
-      word={word.word}
-      description={word.description}
-    />
-  {/each}
+  <Word/>
 </div>
 
 
