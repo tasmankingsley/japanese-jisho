@@ -3,15 +3,11 @@ import jisho from './jmdict-eng-common.json';
 
 let jisho1 = [];
 
-for (let i = 0; i < 1000; i++) {
+for (let i = 0; i < 500; i++) {
   jisho1[i] = jisho.words[i];
 }
 
 console.log(jisho1);
-
-// export let id;
-// export let word;
-// export let description;
 
 </script>
 
@@ -20,15 +16,19 @@ console.log(jisho1);
         <!-- <span>ID: {jisho1.id}</span> -->
         <div class="kanji">
             <!-- <span>Kanji:</span> -->
-            {#each jisho1.kanji as kanji}
-                <span>{kanji.text},</span>
+            {#each jisho1.kanji as kanji, i}
+                {#if i === 0}
+                    <span>{kanji.text}</span>
+                {/if}
             {/each}
         </div>
 
         <div class="kana">
             <!-- <span>Kana:</span> -->
-            {#each jisho1.kana as kana}
-                <span>{kana.text},</span>
+            {#each jisho1.kana as kana, i}
+                {#if i === 0}
+                    <span>{kana.text}</span>
+                {/if}
             {/each}
         </div>
 
@@ -36,7 +36,7 @@ console.log(jisho1);
             <!-- <span>Meaning:</span> -->
             {#each jisho1.sense as sense}
                 {#each sense.gloss as gloss}
-                    <span>{gloss.text},</span>
+                        <span>{gloss.text},</span>
                 {/each}
             {/each}
         </div>
@@ -46,7 +46,8 @@ console.log(jisho1);
 <style>
 .word {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-auto-flow: row;
+    /* grid-template-rows: repeat(3, 1fr); */
     background-color: #bbb;
     font-size: 1.2rem;
     height: 90px;
@@ -60,6 +61,8 @@ console.log(jisho1);
     white-space: nowrap;
     margin-left: 5px;
     margin-right: 5px;
+    font-weight: 400;
+    font-size: 1.4rem;
 }
 
 .kana {
@@ -68,6 +71,7 @@ console.log(jisho1);
     white-space: nowrap;
     margin-left: 5px;
     margin-right: 5px;
+    font-weight: 400;
 }
 
 .meaning {
@@ -76,5 +80,9 @@ console.log(jisho1);
     white-space: nowrap;
     margin-left: 5px;
     margin-right: 5px;
+}
+
+span {
+    padding: 2px;
 }
 </style>
