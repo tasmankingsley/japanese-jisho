@@ -4,7 +4,7 @@ import Word from './lib/Word.svelte';
 </script>
 
 
-<div class="header">Japanese Jisho</div>
+<div class="header">Nihongo no Jisho</div>
 <div class="grid">
   <Word/>
 </div>
