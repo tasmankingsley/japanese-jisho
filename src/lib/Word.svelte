@@ -15,7 +15,7 @@ console.log(jisho1);
     <div class="word">
         <!-- <span>ID: {jisho1.id}</span> -->
         <div class="kanji">
-            <span>Kanji:</span>
+            <!-- <span>Kanji:</span> -->
             {#each jisho1.kanji as kanji, i}
                 {#if i === 0}
                     <span>{kanji.text}</span>
@@ -24,7 +24,7 @@ console.log(jisho1);
         </div>
 
         <div class="kana">
-            <span>Kana:</span>
+            <!-- <span>Kana:</span> -->
             {#each jisho1.kana as kana, i}
                 {#if i === 0}
                     <span>{kana.text}</span>
@@ -33,7 +33,7 @@ console.log(jisho1);
         </div>
 
         <div class="meaning">
-            <span>Meaning:</span>
+            <!-- <span>Meaning:</span> -->
             {#each jisho1.sense as sense}
                 {#each sense.gloss as gloss}
                         <span>{gloss.text},</span>
@@ -48,7 +48,7 @@ console.log(jisho1);
     display: grid;
     grid-auto-flow: row;
     /* grid-template-rows: repeat(3, 1fr); */
-    background-color: #bbb;
+    background-color: #eee;
     font-size: 1.2rem;
     height: 90px;
     line-height: 30px;
