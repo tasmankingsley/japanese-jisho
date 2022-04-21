@@ -13,7 +13,7 @@ console.log(jisho1);
 
 {#each jisho1 as jisho1}
     <div class="word">
-        <!-- <span>ID: {jisho1.id}</span> -->
+        <span>ID: {jisho1.id}</span>
         <div class="kanji">
             <!-- <span>Kanji:</span> -->
             {#each jisho1.kanji as kanji, i}
