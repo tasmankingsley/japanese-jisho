@@ -1,13 +1,25 @@
 <script>
+import Menu from './lib/Menu.svelte';
 import Word from './lib/Word.svelte';
+import Tabs from './lib/Tabs.svelte';
+import { words1 } from './lib/stores';
 
 </script>
 
+<body>
+  <div class="header">Nihongo no Jisho</div>
+  
+  <div class="grid">
+    <!-- <Menu/> -->
 
-<div class="header">Nihongo no Jisho</div>
-<div class="grid">
-  <Word/>
-</div>
+    <!-- {#if $words1} -->
+      <Word/>
+    <!-- {/if} -->
+  </div>
+  <Tabs/>
+</body>
+
+
 
 
 <style>
