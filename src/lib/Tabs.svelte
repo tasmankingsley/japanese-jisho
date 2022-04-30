@@ -1,11 +1,17 @@
 <script>
+import { menu_visible, words1 } from './stores';
 
+function display_menu() {
+    $menu_visible = true;
+    $words1 = false;
+}
 </script>
 
+
 <div class="tabs">
-    <span>1</span>
-    <span>2</span>
-    <span>3</span>
+    <span on:click={display_menu}>home</span>
+    <span>lists</span>
+    <span>settings</span>
 </div>
 
 <style>
@@ -23,5 +29,11 @@
     font-size: 1.5rem;
     padding: 5px;
     margin: auto;
+}
+
+span:hover {
+    cursor: pointer;
+    background-color: #222
+
 }
 </style>

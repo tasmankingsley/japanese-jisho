@@ -2,7 +2,7 @@
 import Menu from './lib/Menu.svelte';
 import Word from './lib/Word.svelte';
 import Tabs from './lib/Tabs.svelte';
-import { words1 } from './lib/stores';
+import { menu_visible, words1 } from './lib/stores';
 
 </script>
 
@@ -10,11 +10,14 @@ import { words1 } from './lib/stores';
   <div class="header">Nihongo no Jisho</div>
   
   <div class="grid">
-    <!-- <Menu/> -->
+    {#if $menu_visible}
+      <Menu/>
+    {/if}
 
-    <!-- {#if $words1} -->
+
+    {#if $words1}
       <Word/>
-    <!-- {/if} -->
+    {/if}
   </div>
   <Tabs/>
 </body>
