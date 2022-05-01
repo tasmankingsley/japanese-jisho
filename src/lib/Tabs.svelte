@@ -1,9 +1,10 @@
 <script>
-import { menu_visible, words1 } from './stores';
+import { menu_visible, words1, words2 } from './stores';
 
 function display_menu() {
     $menu_visible = true;
     $words1 = false;
+    $words2 = false;
 }
 </script>
 

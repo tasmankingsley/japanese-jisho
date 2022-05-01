@@ -1,12 +1,12 @@
 <script>
-import { menu_visible, words1 } from './stores';
+import { menu_visible, words1, words2 } from './stores';
 </script>
 
-<div class="menu-item" on:click={() => {$words1 = true; $menu_visible = false;}}>
+<div class="menu-item" on:click={() => {$words1 = true; $words2 = false; $menu_visible = false;}}>
     words 0-500
 </div>
 
-<div class="menu-item">
+<div class="menu-item" on:click={() => {$words2 = true; $words1 = false; $menu_visible = false;}}>
     word list 2
 </div>
 

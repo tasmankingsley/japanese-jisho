@@ -2,7 +2,7 @@
 import Menu from './lib/Menu.svelte';
 import Word from './lib/Word.svelte';
 import Tabs from './lib/Tabs.svelte';
-import { menu_visible, words1 } from './lib/stores';
+import { menu_visible, words1, words2 } from './lib/stores';
 
 </script>
 
@@ -16,6 +16,10 @@ import { menu_visible, words1 } from './lib/stores';
 
 
     {#if $words1}
+      <Word/>
+    {/if}
+
+    {#if $words2}
       <Word/>
     {/if}
   </div>
