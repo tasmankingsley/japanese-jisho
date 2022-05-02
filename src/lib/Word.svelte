@@ -1,9 +1,13 @@
 <script>
 import jisho from './jmdict-eng-common.json';
+// import { jisho1 } from './stores';
 
 let jisho1 = [];
 
-for (let i = 0; i < 500; i++) {
+export let range_start;
+export let range_end;
+
+for (let i = range_start; i < range_end; i++) {
   jisho1[i] = jisho.words[i];
 }
 
