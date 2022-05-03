@@ -7,15 +7,15 @@ import { menu_visible, words1, words2 } from './stores';
 </div>
 
 <div class="menu-item" on:click={() => {$words2 = true; $words1 = false; $menu_visible = false;}}>
-    word list 2
+    words 501-1000
 </div>
 
 <div class="menu-item">
-    word list 3
+    words 1001-1500
 </div>
 
 <div class="menu-item">
-    word list 4
+    words 1501-2000
 </div>
 
 <style>
