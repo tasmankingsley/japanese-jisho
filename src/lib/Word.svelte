@@ -7,7 +7,7 @@ let jisho1 = [];
 export let range_start;
 export let range_end;
 
-for (let i = range_start; i < range_end; i++) {
+for (let i = 0; i < 1000; i++) {
   jisho1[i] = jisho.words[i];
 }
 
