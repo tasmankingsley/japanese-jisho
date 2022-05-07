@@ -4,8 +4,8 @@ import jisho from './jmdict-eng-common.json';
 
 let jisho1 = [];
 
-export let range_start;
-export let range_end;
+// export let range_start;
+// export let range_end;
 
 for (let i = 0; i < 500; i++) {
   jisho1[i] = jisho.words[i];
