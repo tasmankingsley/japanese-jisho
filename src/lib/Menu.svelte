@@ -24,7 +24,7 @@ import { menu_visible, words1, words2 } from './stores';
         justify-content: center;
         flex-direction: column;
         height: 150px;
-        background-color: #505d93;
+        background-color: #99d2d4;
         color: #fff;
         text-align: center;
         border-radius: 10px;
