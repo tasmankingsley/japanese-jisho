@@ -1,41 +1,39 @@
 <script setup>
-// import jisho from './jmdict-eng-common.json';
+import { jisho } from "../main";
+
 // import { jisho1 } from './stores';
 
 let jisho1 = [];
 
-// export let range_start;
-// export let range_end;
-
 for (let i = 0; i < 500; i++) {
-  jisho1[i] = jisho.words[i];
+  jisho1[i] = jisho[i];
 }
 
-console.log(jisho1);
+console.log(jisho);
 
 </script>
 
 <template>
 
-<div class="word" v-for="jisho1 in jisho1">
+<div class="word" v-for="jisho in jisho1">
     <!-- <span>ID: {jisho1.id}</span> -->
     <div class="kanji">
         <!-- <span>Kanji:</span> -->
-        <div v-for="(kanji, i) in jisho1.kanji">
+        <div v-for="(kanji, i) in jisho.kanji">
             <span v-if="i === 0">{{kanji.text}}</span>
         </div>
     </div>
 
     <div class="kana">
         <!-- <span>Kana:</span> -->
-        <div v-for="(kana, i) in jisho1.kana">
+        <div v-for="(kana, i) in jisho.kana">
             <span v-if="i === 0">{{kana.text}}</span>
         </div>
     </div>
 
     <div class="meaning">
         <!-- <span>Meaning:</span> -->
-        <div v-for="sense in jisho1.sense">
+        <div v-for="sense in jisho.sense">
             <div v-for="gloss in sense.gloss">
                 <span>{{gloss.text}}</span>
             </div>
