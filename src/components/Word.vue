@@ -1,5 +1,5 @@
 <script setup>
-import jisho from './jmdict-eng-common.json';
+// import jisho from './jmdict-eng-common.json';
 // import { jisho1 } from './stores';
 
 let jisho1 = [];
