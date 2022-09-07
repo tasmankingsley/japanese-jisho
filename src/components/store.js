@@ -1,9 +1,13 @@
 import { reactive } from 'vue';
 
 export let store = reactive({
-    menu_visible: true,
-    words1: false,
-    words2: false
+    nav_visible: true,
+    menu_visible: false,
+    dictionary_visible: true,
+    words: false,
+    words2: false,
+    search: ''
+
 });
 
 // export let jisho1 = reactive([]);

@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import './style.css'
+import { reactive } from 'vue'
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
@@ -35,7 +36,6 @@ get(child(dbRef, 'words')).then((snapshot) => {
 }).catch((error) => {
   console.error(error);
 });
-
 
 
 import App from './App.vue'

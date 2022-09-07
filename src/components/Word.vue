@@ -1,15 +1,33 @@
 <script setup>
-import { jisho } from "../main";
+import { jisho } from '../main';
+import { store } from './store'
 
 // import { jisho1 } from './stores';
 
+let jisho_filter = [];
 let jisho1 = [];
 
-for (let i = 0; i < 500; i++) {
-  jisho1[i] = jisho[i];
-}
+for (let i = 0; i < jisho.length; i++) {
+    let found_count = 0;
+    console.log(jisho[i].sense[0].gloss[0].text);
 
-console.log(jisho);
+
+    if (jisho[i].sense[0].gloss[0].text === store.search) {
+        jisho1[found_count] = jisho[i];
+        found_count++;
+    }
+    
+}
+// console.log(jisho[i].sense[0].gloss[0].text)
+
+// jisho1 = jisho[i].sense[0].gloss[0].text
+
+// jisho1 = jisho_filter.filter(word => word === 'CD player');
+console.log(jisho1);
+
+// console.log(jisho);
+
+
 
 </script>
 

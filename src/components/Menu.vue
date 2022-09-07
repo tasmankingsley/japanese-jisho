@@ -12,13 +12,6 @@ import { store } from './store';
     words 501-1000
 </div>
 
-<div class="menu-item">
-    words 1001-1500
-</div>
-
-<div class="menu-item">
-    words 1501-2000
-</div>
 
 </template>
 
