@@ -13,11 +13,7 @@ import { store } from './components/store';
 // )
 
 function toggle_menu() {
-    if (store.nav_visable === false){
-        store.nav_visable = true;
-    } else {
-        store.nav_visable = false;
-    }
+  store.nav_visible =  !store.nav_visible;
 }
 </script>
 
@@ -27,7 +23,7 @@ function toggle_menu() {
   </div>
 
   <div class="header">
-    <span class="burger" @click="toggle_menu">☰</span>
+    <span class="burger" @click="toggle_menu">{{!store.nav_visible ? '☰' : '✕'}}</span>
     <span>Japanese Jisho</span>
   </div>
   

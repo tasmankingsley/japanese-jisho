@@ -1,7 +1,7 @@
 import { reactive } from 'vue';
 
 export let store = reactive({
-    nav_visible: true,
+    nav_visible: false,
     menu_visible: false,
     dictionary_visible: true,
     words: false,

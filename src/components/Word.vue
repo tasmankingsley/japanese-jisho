@@ -7,13 +7,13 @@ import { store } from './store'
 let jisho_filter = [];
 let jisho1 = [];
 
-for (let i = 0; i < jisho.length; i++) {
+for (let i = 0; i < jisho.words.length; i++) {
     let found_count = 0;
-    console.log(jisho[i].sense[0].gloss[0].text);
+    // console.log(jisho.words[i].sense[0].gloss[0].text);
 
 
-    if (jisho[i].sense[0].gloss[0].text === store.search) {
-        jisho1[found_count] = jisho[i];
+    if (jisho.words[i].sense[0].gloss[0].text === store.search) {
+        jisho1[found_count] = jisho.words[i];
         found_count++;
     }
     

@@ -24,14 +24,11 @@ const app = initializeApp(firebaseConfig);
 
 
 export let jisho;
-export const dbRef = ref(getDatabase());
-get(child(dbRef, 'words')).then((snapshot) => {
+// export const dbRef = ref(getDatabase());
+get(ref(getDatabase())).then((snapshot) => {
   if (snapshot.exists()) {
     jisho = snapshot.val();
-    console.log(snapshot.val());
-    
-  } else {
-    console.log("No data available");
+    console.log(snapshot.val());   
   }
 }).catch((error) => {
   console.error(error);

@@ -5,7 +5,7 @@ import { store } from './store';
 
 <template>
 <transition>
-    <div class="menu" v-if="store.nav_visable === true">
+    <div class="menu" v-if="store.nav_visible === true">
         <div class="menu_options">
             <span>Home</span>
             <span>Dictionary</span>
