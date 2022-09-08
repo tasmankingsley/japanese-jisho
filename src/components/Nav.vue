@@ -1,18 +1,28 @@
 <script setup>
-import { store } from './store';
+import { store, nav } from './store';
+
+function toggle(num) {
+  for (let i = 1; i < nav.length - 1; i++) {
+    nav[i].visible = false;
+  }
+  store.words = false;
+  nav[num].visible = true;
+  store.title = nav[num].name;
+  nav[0].visible = !nav[0].visible;
+}
 
 </script>
 
 <template>
 <transition>
-    <div class="menu" v-if="store.nav_visible === true">
+    <div class="menu" v-if="nav[0].visible === true">
         <div class="menu_options">
-            <span>Home</span>
-            <span>Dictionary</span>
-            <span>Word lists</span>
-            <span>Kana tables</span>
-            <span>Kanji table</span>
-            <span>Settings</span>
+            <span @click="toggle(1)">Home</span>
+            <span @click="toggle(2)">Dictionary</span>
+            <span @click="toggle(3)">Word lists</span>
+            <span @click="toggle(4)">Kana table</span>
+            <span @click="toggle(5)">Kanji table</span>
+            <span @click="toggle(6)">Settings</span>
         </div>
     </div>
 </transition>
@@ -22,7 +32,7 @@ import { store } from './store';
 .menu {
     font-size: 1.5rem;
     background-color: #0c0c12;
-    color: #3658a6;
+    color: #99d2d4;
     position: fixed;
     width: 300px;
     height: 100%;
@@ -62,6 +72,7 @@ span {
 
 span:hover {
     background-color: #fff;
+    color: #ef243c;
 }
 
 </style>

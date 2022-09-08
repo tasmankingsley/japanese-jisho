@@ -9,11 +9,14 @@ function display_menu() {
 </script>
     
 <template>
-    <div class="tabs">
+
+<div class="tabs">
     <span @click="display_menu">home</span>
-    <span>lists</span>
+    <span>search</span>
     <span>settings</span>
 </div>
+
+<div class="ghost-tab"></div>
 
 </template>
 
@@ -23,15 +26,25 @@ function display_menu() {
     grid-auto-flow: column;
     grid-template-columns: repeat(3, 1fr);
     position: fixed;
-    height: 30px;
-    line-height: 30px;
+    height: 40px;
+    line-height: 40px;
     width: 100%;
     bottom: 0;
     background-color: #000;
     text-align: center;
     font-size: 1.5rem;
-    padding: 5px;
     margin: auto;
+    /* border-top: 3px solid #ef243c; */
+    z-index: 1;
+}
+
+.ghost-tab {
+    position: sticky;
+    bottom: 0;
+    opacity: 0;
+    height: 40px;
+    width: 100%;
+    z-index: 0;
 }
 
 span:hover {

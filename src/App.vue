@@ -1,10 +1,11 @@
 <script setup>
 import Nav from './components/Nav.vue';
-import Menu from './components/Menu.vue';
+import Home from './components/Home.vue';
 import Dictionary from './components/Dictionary.vue';
+import Kana from './components/Kana.vue';
 import Word from './components/Word.vue';
 import Tabs from './components/Tabs.vue';
-import { store } from './components/store';
+import { store, nav } from './components/store';
 
 // import { defineAsyncComponent } from 'vue'
 
@@ -12,47 +13,63 @@ import { store } from './components/store';
 //   import('./components/Dictionary.vue')
 // )
 
-function toggle_menu() {
-  store.nav_visible =  !store.nav_visible;
+function toggle_nav() {
+  nav[0].visible =  !nav[0].visible;
 }
 </script>
 
 <template>
-  <div v-if="store.nav_visible">
+  <div v-if="nav[0].visible">
     <Nav/>
   </div>
 
   <div class="header">
-    <span class="burger" @click="toggle_menu">{{!store.nav_visible ? '☰' : '✕'}}</span>
-    <span>Japanese Jisho</span>
+    <span class="burger" @click="toggle_nav">{{!nav[0].visible ? '⃝' : '✕'}}</span>
+    <span>{{store.title}}</span>
   </div>
   
   <div class="grid">
-    <div v-if="store.menu_visible">
-      <Menu/>
+    <div v-if="nav[1].visible">
+      <Home/>
     </div>
 
-    <div v-if="store.dictionary_visible">
+    <div v-if="nav[2].visible">
       <Dictionary/>
     </div>
+
+    <div v-if="nav[3].visible">
+
+    </div>
+
+    <div v-if="nav[4].visible">
+      <Kana/>
+    </div>
+
+    <div v-if="nav[5].visible">
+
+    </div>
+
+    <div v-if="nav[6].visible">
+
+    </div>
+
+
 
     <div v-if="store.words">
       <Word/>
     </div>
 
-    <div v-if="store.words2">
-      <Word/>
-    </div>
   </div>
-  <Tabs/>
 
+
+  <Tabs/>
 </template>
 
 <style scoped>
 .header {
   font-size: 1.5rem;
-  padding: 5px;
-  height: 30px;
+  height: 40px;
+  line-height: 40px;
   position: sticky;
   top: 0;
   background-color: black;
@@ -61,9 +78,10 @@ function toggle_menu() {
 
 .burger {
   position: fixed;
-  left: 10px;
+  left: 5px;
   top: 0px;
-  font-size: 1.8rem;
+  font-size: 30px;
+  /* line-height: 40px; */
   cursor: pointer;
 }
 
