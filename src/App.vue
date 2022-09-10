@@ -2,17 +2,11 @@
 import Nav from './components/Nav.vue';
 import Home from './components/Home.vue';
 import Dictionary from './components/Dictionary.vue';
+import Lists from './components/Lists.vue';
 import Kana from './components/Kana.vue';
 import Word from './components/Word.vue';
 import Tabs from './components/Tabs.vue';
 import { store, nav } from './components/store';
-
-
-// import { defineAsyncComponent } from 'vue'
-
-// const Dictionary = defineAsyncComponent(() =>
-//   import('./components/Dictionary.vue')
-// )
 
 function toggle_nav() {
   nav[0].visible =  !nav[0].visible;
@@ -20,9 +14,9 @@ function toggle_nav() {
 </script>
 
 <template>
-  <div v-if="nav[0].visible">
+  <!-- <div v-show="nav[0].visible"> -->
     <Nav/>
-  </div>
+  <!-- </div> -->
 
   <div class="header">
     <span class="burger" @click="toggle_nav">{{!nav[0].visible ? '=' : '⤫'}}</span>
@@ -39,7 +33,7 @@ function toggle_nav() {
     </div>
 
     <div v-if="nav[3].visible">
-
+      <Lists/>
     </div>
 
     <div v-if="nav[4].visible">
@@ -54,13 +48,17 @@ function toggle_nav() {
 
     </div>
 
-
-  <Suspense>
     <div v-if="store.words">
-      <Word/>
+    <Suspense>
+      
+        <Word/>
+
+      <template #fallback>
+        <span class="loading">loading...</span>
+      </template>
+      
+      </Suspense>
     </div>
-    
-  </Suspense>
 
   </div>
 
@@ -77,6 +75,13 @@ function toggle_nav() {
   top: 0;
   background-color: black;
   text-align: center;
+}
+
+.loading {
+  display: grid;
+  margin-top: 100px;
+  font-size: 1.5rem;
+  place-items: center;
 }
 
 .burger {

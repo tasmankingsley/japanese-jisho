@@ -1,6 +1,5 @@
 <script setup>
 import { store } from './store';
-// import { jisho } from './database';
 import { reactive } from 'vue';
 
 
@@ -13,6 +12,7 @@ function search_dict() {
 }
 
 function refresh() {
+    search.val = '';
     store.words = false;
 }
 

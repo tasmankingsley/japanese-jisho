@@ -1,10 +1,15 @@
 <script setup>
-import { store, nav } from './store';
+import { store, nav, list } from './store';
 
 function toggle(num) {
   for (let i = 1; i < nav.length - 1; i++) {
     nav[i].visible = false;
   }
+
+  for (let i = 0; i < list.length; i++) {
+    list[i].visible = false;
+  }
+  
   store.words = false;
   nav[num].visible = true;
   store.title = nav[num].name;
@@ -15,8 +20,8 @@ function toggle(num) {
 
 <template>
 <transition>
-    <div class="menu" v-if="nav[0].visible === true">
-        <div class="menu_options">
+    <div class="menu" v-if="nav[0].visible">
+        <div class="menu_options" >
             <span @click="toggle(1)">Home</span>
             <span @click="toggle(2)">Dictionary</span>
             <span @click="toggle(3)">Word lists</span>

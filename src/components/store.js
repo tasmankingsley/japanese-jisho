@@ -16,6 +16,16 @@ export let nav = reactive([
     {name: 'Settings', visible: false},
 ]);
 
+export let list = reactive([
+    {name: 'l1', visible: false, start: 0, end: 1000},
+    {name: 'l2', visible: false, start: 1001, end: 2000},
+    {name: 'l3', visible: false, start: 2001, end: 3000},
+    {name: 'l4', visible: false, start: 3001, end: 4000},
+    {name: 'l5', visible: false, start: 4001, end: 5000},
+]);
+
+
+
 export let hiragana = reactive([
     {kana: 'あ', romaji: 'a'},
     {kana: 'い', romaji: 'i'},
