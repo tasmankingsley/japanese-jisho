@@ -10,7 +10,10 @@ let kana = reactive({
 </script>
     
 <template>
-    <div class="kana-type" @click="kana.switch = !kana.switch">{{kana.switch ? 'Hiragana' : 'Katakana'}}</div>
+    <div class="kana-type" @click="kana.switch = !kana.switch">
+        <span>{{kana.switch ? 'Hiragana' : 'Katakana'}}</span>
+        <span style="float: right; margin-right: 5px; color: #d90429;">{{!kana.switch ? 'Hiragana' : 'Katakana'}}</span>
+    </div>
 
     <div class="grid">
         <div class="kana" v-for="item in kana.switch ? hiragana : katakana">
@@ -29,7 +32,8 @@ let kana = reactive({
     place-items: center;
     background-color: #0c0c12;
     color: #fff;
-    margin: 3px;
+    margin: 5px;
+    border-radius: 5px;
     /* width: 100%; */
 }
 

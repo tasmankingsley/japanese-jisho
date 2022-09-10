@@ -26,12 +26,12 @@ function toggle(num) {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 150px;
+    height: 120px;
     background-color: #99d2d4;
     color: #fff;
     text-align: center;
-    border-radius: 10px;
-    margin: 5px;
+    border-radius: 5px;
+    margin: 10px;
     font-size: 1.5rem;
     /* gap: 10px; */
 }

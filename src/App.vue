@@ -7,6 +7,7 @@ import Word from './components/Word.vue';
 import Tabs from './components/Tabs.vue';
 import { store, nav } from './components/store';
 
+
 // import { defineAsyncComponent } from 'vue'
 
 // const Dictionary = defineAsyncComponent(() =>
@@ -24,7 +25,7 @@ function toggle_nav() {
   </div>
 
   <div class="header">
-    <span class="burger" @click="toggle_nav">{{!nav[0].visible ? '⃝' : '✕'}}</span>
+    <span class="burger" @click="toggle_nav">{{!nav[0].visible ? '=' : '⤫'}}</span>
     <span>{{store.title}}</span>
   </div>
   
@@ -54,22 +55,24 @@ function toggle_nav() {
     </div>
 
 
-
+  <Suspense>
     <div v-if="store.words">
       <Word/>
     </div>
+    
+  </Suspense>
 
   </div>
 
 
-  <Tabs/>
+  <!-- <Tabs/> -->
 </template>
 
 <style scoped>
 .header {
   font-size: 1.5rem;
-  height: 40px;
-  line-height: 40px;
+  height: 50px;
+  line-height: 50px;
   position: sticky;
   top: 0;
   background-color: black;
@@ -78,10 +81,10 @@ function toggle_nav() {
 
 .burger {
   position: fixed;
-  left: 5px;
+  left: 10px;
   top: 0px;
-  font-size: 30px;
-  /* line-height: 40px; */
+  font-size: 50px;
+  line-height: 43px;
   cursor: pointer;
 }
 

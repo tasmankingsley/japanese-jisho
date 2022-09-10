@@ -1,15 +1,26 @@
 <script setup>
-import { jisho } from '../main';
 import { store } from './store'
+import { get } from "firebase/database";
+import { db } from '../main';
 
-// import { jisho1 } from './stores';
+
+let jisho;
+
+await get(db).then((snapshot) => {
+  if (snapshot.exists()) {
+    jisho = snapshot.val();
+    console.log(snapshot.val());   
+  }
+}).catch((error) => {
+  console.error(error);
+});
+
 
 let jisho_filter = [];
 let jisho1 = [];
 
 for (let i = 0; i < jisho.words.length; i++) {
     let found_count = 0;
-    // console.log(jisho.words[i].sense[0].gloss[0].text);
 
 
     if (jisho.words[i].sense[0].gloss[0].text === store.search) {
@@ -18,11 +29,7 @@ for (let i = 0; i < jisho.words.length; i++) {
     }
     
 }
-// console.log(jisho[i].sense[0].gloss[0].text)
 
-// jisho1 = jisho[i].sense[0].gloss[0].text
-
-// jisho1 = jisho_filter.filter(word => word === 'CD player');
 console.log(jisho1);
 
 // console.log(jisho);
@@ -59,14 +66,17 @@ console.log(jisho1);
     </div>
 </div>
 
+
+
 </template>
 
 <style scoped>
 .word {
     display: grid;
     grid-auto-flow: row;
-    /* grid-template-rows: repeat(3, 1fr); */
-    background-color: #eee;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: #000;
+    color: #dc3c44;
     font-size: 1.2rem;
     height: 90px;
     line-height: 30px;

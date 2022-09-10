@@ -4,9 +4,7 @@ import { reactive } from 'vue'
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, child, get } from "firebase/database";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getDatabase, ref, get } from "firebase/database";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -20,19 +18,30 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
+export const db = ref(getDatabase());
+// export let jisho;
+
+// get(db).then((snapshot) => {
+//   if (snapshot.exists()) {
+//     jisho = snapshot.val();
+//     console.log(snapshot.val());   
+//   }
+// }).catch((error) => {
+//   console.error(error);
+// });
 
 
-export let jisho;
+// export let jisho;
 // export const dbRef = ref(getDatabase());
-get(ref(getDatabase())).then((snapshot) => {
-  if (snapshot.exists()) {
-    jisho = snapshot.val();
-    console.log(snapshot.val());   
-  }
-}).catch((error) => {
-  console.error(error);
-});
+// await get(ref(getDatabase())).then((snapshot) => {
+//   if (snapshot.exists()) {
+//     jisho = snapshot.val();
+//     console.log(snapshot.val());   
+//   }
+// }).catch((error) => {
+//   console.error(error);
+// });
 
 
 import App from './App.vue'

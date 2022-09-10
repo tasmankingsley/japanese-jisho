@@ -1,8 +1,8 @@
 <script setup>
 import { store } from './store';
-import { jisho } from "../main";
+// import { jisho } from './database';
+import { reactive } from 'vue';
 
-import { reactive, ref } from 'vue';
 
 let search = reactive({val: ''});
 
@@ -20,16 +20,29 @@ function refresh() {
 </script>
     
 <template>
-<input type="text" v-model="search.val" @keydown.enter="search_dict" @click="refresh" @keydown.delete="refresh"/>
+
+<div>
+    <input type="text" v-model="search.val" @keydown.enter="search_dict" @click="refresh" @keydown.delete="refresh" placeholder="search"/>
+</div>
 
 </template>
 
 <style scoped>
+div {
+    display: flex;
+    justify-content: center;
+}
+
 input {
     width: 100%;
     height: 30px;
+    text-align: center;
     padding: 5px;
+    margin: 10px;
     line-height: 30px;
     font-size: 1.5rem;
+    border-radius: 5px;
+    border-style: none;
+    
 }
 </style>

@@ -36,7 +36,7 @@ function toggle(num) {
     position: fixed;
     width: 300px;
     height: 100%;
-    top: 40px;
+    top: 50px;
     transition: width 0.3s;
     z-index: 3;
 }
