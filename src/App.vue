@@ -4,7 +4,8 @@ import Home from './components/Home.vue';
 import Dictionary from './components/Dictionary.vue';
 import Lists from './components/Lists.vue';
 import Kana from './components/Kana.vue';
-import Word from './components/Word.vue';
+import Kanji from './components/Kanji.vue';
+import Words from './components/Words.vue';
 import Tabs from './components/Tabs.vue';
 import { store, nav } from './components/store';
 
@@ -41,7 +42,7 @@ function toggle_nav() {
     </div>
 
     <div v-if="nav[5].visible">
-
+      <Kanji/>
     </div>
 
     <div v-if="nav[6].visible">
@@ -51,7 +52,7 @@ function toggle_nav() {
     <div v-if="store.words">
     <Suspense>
       
-        <Word/>
+        <Words/>
 
       <template #fallback>
         <span class="loading">loading...</span>

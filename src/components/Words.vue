@@ -3,15 +3,19 @@ import { reactive } from 'vue';
 import { store, nav, list } from './store';
 import { get } from "firebase/database";
 import { db } from '../main';
-// import local_db from '../jmdict-eng-common.json';
+import local_db from '../jmdict-eng-common.json';
 // import localforage from 'localforage';
 
 
 let jisho;
+let jisho_filter = [];
 
 // for local testing
-// let jisho = local_db;
+jisho = local_db;
 
+
+
+// localstorage indexdb test (not currently working)
 
 // let db_store = localforage.getItem('jisho_store').then((value) => {
 //     console.log(value);
@@ -41,26 +45,23 @@ let jisho;
 
 
 
+/////////////UNCOMMENT FOR PRODUCTION//////////////
 
-// let jisho;
-let jisho_filter = [];
+// await get(db).then((snapshot) => {
+//     if (snapshot.exists()) {
+//     jisho = snapshot.val();
 
+//     // localforage.setItem('jisho_store', jisho).then((value) => {
+//     //     console.log(value);
+//     // }).catch(function(err) {
+//     //     console.log(err);
+//     // });
 
-await get(db).then((snapshot) => {
-    if (snapshot.exists()) {
-    jisho = snapshot.val();
-
-    // localforage.setItem('jisho_store', jisho).then((value) => {
-    //     console.log(value);
-    // }).catch(function(err) {
-    //     console.log(err);
-    // });
-
-    console.log(snapshot.val());   
-    }
-}).catch((error) => {
-console.error(error);
-});
+//     console.log(snapshot.val());   
+//     }
+// }).catch((error) => {
+// console.error(error);
+// });
 
 
 
