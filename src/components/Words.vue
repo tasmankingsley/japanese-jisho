@@ -105,21 +105,21 @@ console.log(jisho_filter);
 <div class="word" v-for="jisho in jisho_filter">
     <!-- <span>ID: {jisho1.id}</span> -->
     <div class="kanji">
-        <span class="label">Kanji</span>
+        <span class="label">Kanji: </span>
         <div v-for="(kanji, i) in jisho.kanji">
             <span v-if="i === 0">{{kanji.text}}</span>
         </div>
     </div>
 
     <div class="kana">
-        <span class="label">Kana</span>
+        <span class="label">Kana: </span>
         <div v-for="(kana, i) in jisho.kana">
             <span v-if="i === 0">{{kana.text}}</span>
         </div>
     </div>
 
     <div class="meaning">
-        <!-- <span class="label">Meaning</span> -->
+        <span class="label">Meaning: </span>
         <div v-for="sense in jisho.sense">
             <div v-for="gloss in sense.gloss">
                 <span class="meaning-text">{{gloss.text}}</span>
@@ -141,16 +141,13 @@ console.log(jisho_filter);
 }
 .word {
     display: grid;
-    grid-auto-flow: row;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-    place-items: left;
-    align-items: center;
+    grid-template-rows: 1fr 1fr 1fr;
+    text-align: left;
     background-color: #0c0c12;
     color: #dc3c44;
     font-size: 1.2rem;
-    height: 90px;
-    line-height: 30px;
+    height: 120px;
+    line-height: 40px;
     width: 100%;
     border-bottom: 2px solid #fff;
     text-overflow: ellipsis;
@@ -158,6 +155,7 @@ console.log(jisho_filter);
     white-space: nowrap;
 }
 .kanji {
+    display: flex;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -167,6 +165,7 @@ console.log(jisho_filter);
 }
 
 .kana {
+    display: flex;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -176,11 +175,14 @@ console.log(jisho_filter);
 }
 
 .meaning {
+    display: flex;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
     margin-left: 5px;
     margin-right: 5px;
+    /* font-size: 20px;
+    line-height: 20px; */
 }
 
 .meaning-text {
@@ -188,7 +190,8 @@ console.log(jisho_filter);
 }
 
 .label {
-    font-weight: 400;
+    color: #fff;
+    /* font-weight: 400; */
 }
 
 span {
@@ -196,7 +199,8 @@ span {
 }
 
 .word:hover {
-    background-color: #fff;
-    cursor: pointer;
+    /* background-color: #fff; */
+    /* opacity: 0.9; */
+    /* cursor: pointer; */
 }
 </style>
