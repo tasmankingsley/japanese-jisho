@@ -18,6 +18,11 @@
     <div class="menu-item" @click="select_list(2)">2001-3000 words</div>
     <div class="menu-item" @click="select_list(3)">3001-4000 words</div>
     <div class="menu-item" @click="select_list(4)">4001-5000 words</div>
+    <div class="menu-item" @click="select_list(5)">5001-6000 words</div>
+    <div class="menu-item" @click="select_list(6)">6001-7000 words</div>
+    <div class="menu-item" @click="select_list(7)">7001-8000 words</div>
+    <div class="menu-item" @click="select_list(8)">8001-9000 words</div>
+    <div class="menu-item" @click="select_list(9)">9001-10000 words</div>
     
     
     </template>

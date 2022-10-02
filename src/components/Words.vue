@@ -122,7 +122,7 @@ console.log(jisho_filter);
         <span class="label">Meaning: </span>
         <div v-for="sense in jisho.sense">
             <div v-for="gloss in sense.gloss">
-                <span class="meaning-text">{{gloss.text}}</span>
+                <span class="meaning-text">{{gloss.text}}, </span>
             </div>
         </div>
     </div>
@@ -137,7 +137,6 @@ console.log(jisho_filter);
 .grid {
     display: grid;
     grid-auto-flow: row;
-    /* row-gap: 5px; */
 }
 .word {
     display: grid;
@@ -181,17 +180,15 @@ console.log(jisho_filter);
     white-space: nowrap;
     margin-left: 5px;
     margin-right: 5px;
-    /* font-size: 20px;
-    line-height: 20px; */
 }
 
 .meaning-text {
-    
+
 }
 
 .label {
     color: #fff;
-    /* font-weight: 400; */
+    font-size: 1rem;
 }
 
 span {

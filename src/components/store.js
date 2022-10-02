@@ -22,6 +22,12 @@ export let list = reactive([
     {name: 'l3', visible: false, start: 2001, end: 3000},
     {name: 'l4', visible: false, start: 3001, end: 4000},
     {name: 'l5', visible: false, start: 4001, end: 5000},
+    {name: 'l6', visible: false, start: 5001, end: 6000},
+    {name: 'l7', visible: false, start: 6001, end: 7000},
+    {name: 'l8', visible: false, start: 7001, end: 8000},
+    {name: 'l9', visible: false, start: 8001, end: 9000},
+    {name: 'l10', visible: false, start: 9001, end: 10000},
+
 ]);
 
 
