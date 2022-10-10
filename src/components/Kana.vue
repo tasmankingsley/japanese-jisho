@@ -13,7 +13,7 @@ let kana = reactive({
 <template>
     <div class="kana-type" @click="kana.switch = !kana.switch">
         <span>{{kana.switch ? 'Hiragana' : 'Katakana'}}</span>
-        <span style="float: right; margin-right: 5px; color: #d90429;">{{!kana.switch ? 'toggle Hiragana' : 'toggle Katakana'}}</span>
+        <span style="float: right; margin-right: 5px; color: #d90429;">{{!kana.switch ? 'Hiragana' : 'Katakana'}}</span>
     </div>
 
     <div class="grid">
