@@ -3,7 +3,8 @@ import { reactive } from 'vue';
 import { hiragana, katakana } from './store';
 
 let kana = reactive({
-    switch: true
+    switch: true,
+    romaji: false
 });
 
 
@@ -12,12 +13,14 @@ let kana = reactive({
 <template>
     <div class="kana-type" @click="kana.switch = !kana.switch">
         <span>{{kana.switch ? 'Hiragana' : 'Katakana'}}</span>
-        <span style="float: right; margin-right: 5px; color: #d90429;">{{!kana.switch ? 'Hiragana' : 'Katakana'}}</span>
+        <span style="float: right; margin-right: 5px; color: #d90429;">{{!kana.switch ? 'toggle Hiragana' : 'toggle Katakana'}}</span>
     </div>
 
     <div class="grid">
         <div class="kana" v-for="item in kana.switch ? hiragana : katakana">
-            <span>{{item.kana}}</span>
+            <span @click="kana.romaji = !kana.romaji">
+                {{kana.romaji ? item.romaji : item.kana}}
+            </span>
         </div>
     </div>
 
@@ -48,6 +51,10 @@ let kana = reactive({
     font-size: 3.2rem;
     color: #fff;
     /* width: 100%; */
+}
+
+span {
+   cursor: pointer; 
 }
 
 </style>

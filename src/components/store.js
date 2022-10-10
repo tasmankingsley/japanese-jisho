@@ -33,7 +33,7 @@ export let list = reactive([
 
 
 export let hiragana = reactive([
-    {kana: 'あ', romaji: 'a'},
+    {kana: 'あ', romaji: 'a', toggle: false},
     {kana: 'い', romaji: 'i'},
     {kana: 'う', romaji: 'u'},
     {kana: 'え', romaji: 'e'},

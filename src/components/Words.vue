@@ -3,66 +3,48 @@ import { reactive } from 'vue';
 import { store, nav, list } from './store';
 import { get } from "firebase/database";
 import { db } from '../main';
-import local_db from '../jmdict-eng-common.json';
-// import localforage from 'localforage';
+// import local_db from '../jmdict-eng-common.json';
+import localforage from 'localforage';
 
 
 let jisho;
 let jisho_filter = [];
 
 // for local testing
-jisho = local_db;
-
-
-
-// localstorage indexdb test (not currently working)
-
-// let db_store = localforage.getItem('jisho_store').then((value) => {
-//     console.log(value);
-// }).catch(function(err) {
-//     console.log(err);
-// });
-
-// if (db_store === null) {
-//     await get(db).then((snapshot) => {
-//         if (snapshot.exists()) {
-//         jisho = snapshot.val();
-
-//         localforage.setItem('jisho_store', jisho).then((value) => {
-//             console.log(value);
-//         }).catch(function(err) {
-//             console.log(err);
-//         });
-
-//         console.log(snapshot.val());   
-//         }
-//     }).catch((error) => {
-//     console.error(error);
-//     });
-// } else {
-//     jisho = db_store;
-// }
-
+// jisho = local_db;
 
 
 /////////////UNCOMMENT FOR PRODUCTION//////////////
 
-// await get(db).then((snapshot) => {
-//     if (snapshot.exists()) {
-//     jisho = snapshot.val();
+// first checks if there is a local indexDB to use
+await localforage.getItem('local_jisho').then((value) => {
+    jisho = value;
+    console.log(jisho);
+}).catch(function(err) {
+    console.log(err);
+});
 
-//     // localforage.setItem('jisho_store', jisho).then((value) => {
-//     //     console.log(value);
-//     // }).catch(function(err) {
-//     //     console.log(err);
-//     // });
+console.log(jisho);
 
-//     console.log(snapshot.val());   
-//     }
-// }).catch((error) => {
-// console.error(error);
-// });
+// if there is no indexDB jisho will === null,
+// in that case we will download a snapshot from firebase, and store it locally for next use (improves load times and firebase usage dramatically).
+if (jisho === null) {
+    await get(db).then((snapshot) => {
+        if (snapshot.exists()) {
 
+            jisho = snapshot.val();
+
+            localforage.setItem('local_jisho', jisho).then((value) => {
+                console.log(value);
+            }).catch((err) => {
+                console.log(err);
+            });
+
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
+}
 
 
 // If dictionary visible
