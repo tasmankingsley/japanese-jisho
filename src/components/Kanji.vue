@@ -68,6 +68,11 @@ console.log(kanji_filter);
     text-align: left;
 }
 
+.kanji-div:hover {
+    background-color: #16161d;
+    cursor: pointer;
+}
+
 .kanji {
     font-size: 4rem; 
     color: #dc3c44;

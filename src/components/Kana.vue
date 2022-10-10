@@ -13,11 +13,11 @@ let kana = reactive({
 <template>
     <div class="kana-type" @click="kana.switch = !kana.switch">
         <span>{{kana.switch ? 'Hiragana' : 'Katakana'}}</span>
-        <span style="float: right; margin-right: 5px; color: #d90429;">{{!kana.switch ? 'Hiragana' : 'Katakana'}}</span>
+        <span class="kana-switch">{{!kana.switch ? 'Hiragana' : 'Katakana'}}</span>
     </div>
 
     <div class="grid">
-        <div class="kana" v-for="item in kana.switch ? hiragana : katakana">
+        <div class="kana" v-for="item in kana.switch ? hiragana : katakana" :style="{'font-size': kana.romaji ? '2rem' : '3rem'}">
             <span @click="kana.romaji = !kana.romaji">
                 {{kana.romaji ? item.romaji : item.kana}}
             </span>
@@ -30,8 +30,9 @@ let kana = reactive({
 .grid {
     display: grid;
     grid-auto-flow: row;
+    grid-auto-rows: 100px;
     grid-template-columns: repeat(5, 1fr);
-    row-gap: 30px;
+    /* row-gap: 10px; */
     place-items: center;
     background-color: #0c0c12;
     color: #fff;
@@ -48,9 +49,15 @@ let kana = reactive({
 }
 
 .kana {
-    font-size: 3.2rem;
+    font-size: 3rem;
     color: #fff;
     /* width: 100%; */
+}
+
+.kana-switch {
+    float: right; 
+    margin-right: 5px; 
+    color: #d90429;
 }
 
 span {

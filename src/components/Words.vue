@@ -19,12 +19,11 @@ let jisho_filter = [];
 // first checks if there is a local indexDB to use
 await localforage.getItem('local_jisho').then((value) => {
     jisho = value;
-    console.log(jisho);
+    // console.log(jisho);
 }).catch(function(err) {
     console.log(err);
 });
 
-console.log(jisho);
 
 // if there is no indexDB jisho will === null,
 // in that case we will download a snapshot from firebase, and store it locally for next use (improves load times and firebase usage dramatically).
@@ -70,7 +69,6 @@ for (let l = 0; l < list.length; l++) {
         for (let i = list[l].start; i < list[l].end; i++) {
             jisho_filter[count] = jisho.words[i];
             count++;
-            // console.log(jisho_filter[count]);
         }
     }
 
@@ -134,6 +132,11 @@ console.log(jisho_filter);
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.word:hover {
+    background-color: #16161d;
+    cursor: pointer;
 }
 .kanji {
     display: flex;
