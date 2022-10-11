@@ -2,6 +2,8 @@
 import { reactive } from 'vue';
 import { hiragana, katakana } from './store';
 
+window.scrollTo(0, 0);
+
 let kana = reactive({
     switch: true,
     romaji: false
