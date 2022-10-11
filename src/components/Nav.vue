@@ -11,6 +11,7 @@ function toggle(num) {
   }
   
   store.words = false;
+  store.display = false;
   nav[num].visible = true;
   store.title = nav[num].name;
   nav[0].visible = !nav[0].visible;

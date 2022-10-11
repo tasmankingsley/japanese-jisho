@@ -8,6 +8,8 @@ import Kanji from './components/Kanji.vue';
 import Words from './components/Words.vue';
 import Tabs from './components/Tabs.vue';
 import { store, nav } from './components/store';
+import Display from './components/Display.vue';
+import DisplayKanji from './components/DisplayKanji.vue';
 
 function toggle_nav() {
   nav[0].visible =  !nav[0].visible;
@@ -25,6 +27,14 @@ function toggle_nav() {
   </div>
   
   <div class="grid">
+    <div v-if="store.display">
+      <Display/>
+    </div>
+
+    <div v-if="store.display_kanji">
+      <DisplayKanji/>
+    </div>
+
     <div v-if="nav[1].visible">
       <Home/>
     </div>
@@ -50,19 +60,18 @@ function toggle_nav() {
     </div>
 
     <div v-if="store.words">
-    <Suspense>
-      
+      <Suspense>
+        
         <Words/>
 
-      <template #fallback>
-        <span class="loading">loading...</span>
-      </template>
-      
+        <template #fallback>
+          <span class="loading">loading...</span>
+        </template>
+        
       </Suspense>
     </div>
 
   </div>
-
 
   <!-- <Tabs/> -->
 </template>

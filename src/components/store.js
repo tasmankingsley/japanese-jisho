@@ -3,6 +3,8 @@ import { reactive } from 'vue';
 export let store = reactive({
     title: 'Japanese Jisho',
     words: false,
+    display: false,
+    display_kanji: false,
     search: ''
 });
 
@@ -29,6 +31,11 @@ export let list = reactive([
     {name: 'l10', visible: false, start: 9001, end: 10000},
 
 ]);
+
+export let display = reactive({
+    jisho: [],
+    kanji: []
+})
 
 
 

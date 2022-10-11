@@ -1,6 +1,6 @@
 <script setup>
 import { reactive } from 'vue';
-import { store, nav, list } from './store';
+import { store, nav, list, display } from './store';
 import { get } from "firebase/database";
 import { db } from '../main';
 // import local_db from '../jmdict-eng-common.json';
@@ -38,7 +38,6 @@ if (jisho === null) {
             }).catch((err) => {
                 console.log(err);
             });
-
         }
     }).catch((error) => {
         console.error(error);
@@ -61,7 +60,6 @@ if (nav[2].visible) {
 
 // for each list check if selected - if true, filter list with corresponding start/end points
 for (let l = 0; l < list.length; l++) {
-    
     if (list[l].visible) {
         let count = 0;
         jisho_filter = [];
@@ -71,10 +69,17 @@ for (let l = 0; l < list.length; l++) {
             count++;
         }
     }
-
 }
 
 console.log(jisho_filter);
+
+
+function display_word(jisho) {
+    store.display = true;
+    display.jisho = jisho;
+
+    console.log(display.jisho);
+}
 
 </script>
 
@@ -82,28 +87,32 @@ console.log(jisho_filter);
 
 <div class="grid">
 
-<div class="word" v-for="jisho in jisho_filter">
+<div class="word" v-for="jisho in jisho_filter" @click="display_word(jisho)">
     <!-- <span>ID: {jisho1.id}</span> -->
     <div class="kanji">
-        <span class="label">Kanji: </span>
         <div v-for="(kanji, i) in jisho.kanji">
-            <span v-if="i === 0">{{kanji.text}}</span>
+            <span v-if="i === 0">
+                <span class="label">Kanji: </span>
+                {{kanji.text}}
+            </span>
         </div>
     </div>
 
     <div class="kana">
-        <span class="label">Kana: </span>
         <div v-for="(kana, i) in jisho.kana">
-            <span v-if="i === 0">{{kana.text}}</span>
+            <span v-if="i === 0">
+                <span class="label">Kana: </span>
+                {{kana.text}}
+            </span>
         </div>
     </div>
 
     <div class="meaning">
-        <span class="label">Meaning: </span>
-        <div v-for="sense in jisho.sense">
-            <div v-for="gloss in sense.gloss">
-                <span class="meaning-text">{{gloss.text}}, </span>
-            </div>
+        <div v-for="(sense, i) in jisho.sense">
+            <span class="meaning-text" v-if="i === 0">
+                <span class="label">Meaning: </span>
+                {{sense.gloss[0].text}}
+            </span>
         </div>
     </div>
 </div>
@@ -120,15 +129,15 @@ console.log(jisho_filter);
 }
 .word {
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-auto-flow: row;
     text-align: left;
     background-color: #0c0c12;
-    color: #dc3c44;
+    color: #fff;
     font-size: 1.2rem;
     height: 120px;
     line-height: 40px;
     width: 100%;
-    border-bottom: 2px solid #fff;
+    border-bottom: 4px solid #16161d;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -168,11 +177,13 @@ console.log(jisho_filter);
 }
 
 .meaning-text {
-
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .label {
-    color: #fff;
+    color: #dc3c44;
     font-size: 1rem;
 }
 

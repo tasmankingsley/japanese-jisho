@@ -21,36 +21,6 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const db = ref(getDatabase());
 
-// export let jisho = JSON.parse(localStorage.getItem('jisho_store')) || [];
-
-// // export let jisho;
-// if (jisho === []) {
-  
-//   get(db).then((snapshot) => {
-//     if (snapshot.exists()) {
-//       jisho = snapshot.val();
-//       localStorage.setItem('jisho_store', JSON.stringify(jisho));
-
-//       console.log(snapshot.val());   
-//     }
-//   }).catch((error) => {
-//     console.error(error);
-//   });
-
-// }
-
-
-// export let jisho;
-// export const dbRef = ref(getDatabase());
-// await get(ref(getDatabase())).then((snapshot) => {
-//   if (snapshot.exists()) {
-//     jisho = snapshot.val();
-//     console.log(snapshot.val());   
-//   }
-// }).catch((error) => {
-//   console.error(error);
-// });
-
 
 import App from './App.vue'
 

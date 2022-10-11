@@ -1,5 +1,6 @@
 <script setup>
 import { reactive } from 'vue';
+import { store, display } from './store';
 import kanji from '../kanji.json';
 
 console.log(kanji);
@@ -18,17 +19,32 @@ kanji_filter.sort((a, b) => a.kstroke - b.kstroke);
 console.log(kanji_filter);
 
 
+function display_kanji(kanji) {
+    store.display_kanji = true;
+    display.kanji = kanji;
+}
+
+
 </script>
     
 <template>
     <!-- <div class="grid" v-for="kanji in kanji"> -->
     <!-- <span>ID: {jisho1.id}</span> -->
-    <div class="grid" v-for="kanji in kanji_filter">
+    <div class="grid" v-for="kanji in kanji_filter" @click="display_kanji(kanji)">
         <div class="kanji-div">
             <span class="kanji">{{kanji.kanji}}</span>
-            <span class="meaning"><span style="color: #fff;">Kunyomi: </span>{{kanji.kunyomi_ja}}</span>
-            <span class="meaning"><span style="color: #fff;">Onyomi: </span>{{kanji.onyomi_ja}}</span>
-            <span class="meaning"><span style="color: #fff;">Meaning: </span>{{kanji.kmeaning}}</span>
+            <span class="meaning">
+                <span style="color: #dc3c44;">Kunyomi: </span>
+                {{kanji.kunyomi_ja}}
+            </span>
+            <span class="meaning">
+                <span style="color: #dc3c44;">Onyomi: </span>
+                {{kanji.onyomi_ja}}
+            </span>
+            <span class="meaning">
+                <span style="color: #dc3c44;">Meaning: </span>
+                {{kanji.kmeaning}}
+            </span>
         </div>
     </div>
 
@@ -45,12 +61,12 @@ console.log(kanji_filter);
     place-items: left;
     align-items: center;
     background-color: #0c0c12;
-    color: #dc3c44;
+    color: #fff;
     font-size: 1rem;
     height: 120px;
     line-height: 40px;
     width: 100%;
-    border-bottom: 2px solid #fff;
+    border-bottom: 4px solid #16161d;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -75,7 +91,7 @@ console.log(kanji_filter);
 
 .kanji {
     font-size: 4rem; 
-    color: #dc3c44;
+    color: #fff;
     grid-area: a;
     line-height: 120px;
 }
