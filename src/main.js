@@ -5,6 +5,7 @@ import { reactive } from 'vue'
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get } from "firebase/database";
+import { getAnalytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -20,6 +21,8 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const db = ref(getDatabase());
+const analytics = getAnalytics(app);
+
 
 
 import App from './App.vue'
