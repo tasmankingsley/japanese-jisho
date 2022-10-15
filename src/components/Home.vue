@@ -20,7 +20,7 @@ function toggle(num) {
   <div class="menu-item" @click="toggle(3)">Word lists</div>
   <div class="menu-item" @click="toggle(4)">Kana table</div>
   <div class="menu-item" @click="toggle(5)">Kanji table</div>
-  <div class="menu-item" @click="toggle(6)">Settings</div>
+  <!-- <div class="menu-item" @click="toggle(6)">Settings</div> -->
 </div>
 
 
