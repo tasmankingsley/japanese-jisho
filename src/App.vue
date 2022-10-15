@@ -100,6 +100,7 @@ function loading() {
   top: 0;
   background-color: black;
   text-align: center;
+  z-index: 10;
 }
 
 .loading {

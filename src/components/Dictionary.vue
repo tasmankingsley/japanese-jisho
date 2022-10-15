@@ -63,6 +63,7 @@ input::placeholder {
     top: 62px;
     font-size: 1.5rem;
     color: #99d2d4;
+    z-index: 1;
 }
 
 .clear:hover {
