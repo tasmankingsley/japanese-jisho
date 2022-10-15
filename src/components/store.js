@@ -1,4 +1,5 @@
 import { reactive } from 'vue';
+import localforage from 'localforage';
 
 export let store = reactive({
     title: 'Japanese Jisho',
@@ -6,7 +7,8 @@ export let store = reactive({
     display: false,
     display_kanji: false,
     search: '',
-    jisho_filter: []
+    jisho_filter: [],
+    fallback: true
 });
 
 export let nav = reactive([

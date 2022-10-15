@@ -2,7 +2,7 @@
 import { store, nav, list } from './store';
 
 function toggle(num) {
-  for (let i = 1; i < nav.length - 1; i++) {
+  for (let i = 1; i < nav.length; i++) {
     nav[i].visible = false;
   }
 
@@ -12,6 +12,7 @@ function toggle(num) {
   
   store.words = false;
   store.display = false;
+  store.display_kanji = false;
   nav[num].visible = true;
   store.title = nav[num].name;
   nav[0].visible = !nav[0].visible;
@@ -41,10 +42,13 @@ function toggle(num) {
     color: #99d2d4;
     position: fixed;
     width: 300px;
-    height: 100%;
+    height: calc(100vh - 54px);
     top: 50px;
     transition: width 0.3s;
     z-index: 3;
+    border-top: 2px solid #99d2d4;
+    border-right: 2px solid #99d2d4;
+    border-bottom: 2px solid #99d2d4;
 }
 
 .v-enter-active,

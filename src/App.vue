@@ -15,6 +15,10 @@ function toggle_nav() {
 }
 
 
+function loading() {
+  // store.fallback === true;
+}
+
 </script>
 
 <template>
@@ -55,16 +59,28 @@ function toggle_nav() {
     </div>
 
     <div v-if="nav[6].visible">
-
+      <div class="loading">
+            <span>Sorry, <br>there are no<br>settings yet.</span>
+      </div>
     </div>
 
-    <div v-if="store.words">
-      <Suspense>
+
+    <div v-if="store.words" >
+      <Suspense @fallback="loading">
         
         <Words/>
 
         <template #fallback>
-          <span class="loading">loading...</span>
+          <div class="loading" >
+            <span>loading words...</span>
+
+            <div v-if="store.fallback === true" class="fallback">
+              <span>first time database load</span><br/>
+              <span>getting database from server</span><br/>
+              <span>please wait...</span>
+            </div>
+            
+          </div>
         </template>
         
       </Suspense>
@@ -87,10 +103,25 @@ function toggle_nav() {
 }
 
 .loading {
-  display: grid;
-  margin-top: 100px;
+  display: flex;
+  grid-auto-flow: row;
+  flex-direction: column;
+  gap: 20px;
+  max-width: max-content;
+  padding: 10px;
+  border-radius: 10px;
   font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
   place-items: center;
+  background-color: #dc3c44;
+}
+
+.fallback {
+  font-size: 1.2rem;
+  font-weight: 300;
 }
 
 .burger {

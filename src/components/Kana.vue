@@ -13,22 +13,30 @@ let kana = reactive({
 </script>
     
 <template>
+
+<div class="kana-table">
     <div class="kana-type" @click="kana.switch = !kana.switch">
         <span>{{kana.switch ? 'Hiragana' : 'Katakana'}}</span>
         <span class="kana-switch">{{!kana.switch ? 'Hiragana' : 'Katakana'}}</span>
     </div>
 
-    <div class="grid">
+    <div class="grid" @click="kana.romaji = !kana.romaji">
         <div class="kana" v-for="item in kana.switch ? hiragana : katakana" :style="{'font-size': kana.romaji ? '2rem' : '3rem'}">
-            <span @click="kana.romaji = !kana.romaji">
+            <span>
                 {{kana.romaji ? item.romaji : item.kana}}
             </span>
         </div>
     </div>
+</div>
 
 </template>
 
 <style scoped>
+.kana-table {
+    background-color: #ef243c;
+    padding: 5px;
+}
+
 .grid {
     display: grid;
     grid-auto-flow: row;
@@ -37,8 +45,12 @@ let kana = reactive({
     place-items: center;
     background-color: #0c0c12;
     color: #fff;
-    margin: 5px;
-    border-radius: 5px;
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+.grid:hover {
+    cursor: pointer;
 }
 
 .kana-type {

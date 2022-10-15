@@ -17,6 +17,11 @@ let jisho;
 await localforage.getItem('local_jisho').then((value) => {
     jisho = value;
     // console.log(jisho);
+    store.fallback = false;
+
+    if (jisho === null) {
+        store.fallback = true;
+    }
 }).catch(function(err) {
     console.log(err);
 });
@@ -35,6 +40,8 @@ if (jisho === null) {
             }).catch((err) => {
                 console.log(err);
             });
+
+            store.fallback = false;
         }
     }).catch((error) => {
         console.error(error);

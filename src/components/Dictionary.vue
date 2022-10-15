@@ -43,18 +43,30 @@ input {
     font-size: 1.5rem;
     border-radius: 5px;
     border-style: none;
+    background-color: #fff;
+    color: #dc3c44;
 }
+
+input:focus {
+    outline-color: #99d2d4;
+}
+
+input::placeholder {
+    color: #dc3c44;
+    opacity: 0.5;
+}
+
 
 .clear {
     position: absolute;
     right: 18px;
     top: 62px;
     font-size: 1.5rem;
-    color: #757575;
+    color: #99d2d4;
 }
 
 .clear:hover {
     cursor: pointer;
-    color: #000;
+    color: #dc3c44;
 }
 </style>
