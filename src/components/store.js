@@ -5,7 +5,8 @@ export let store = reactive({
     words: false,
     display: false,
     display_kanji: false,
-    search: ''
+    search: '',
+    jisho_filter: []
 });
 
 export let nav = reactive([
@@ -29,6 +30,18 @@ export let list = reactive([
     {name: 'l8', visible: false, start: 7001, end: 8000},
     {name: 'l9', visible: false, start: 8001, end: 9000},
     {name: 'l10', visible: false, start: 9001, end: 10000},
+    {name: 'l11', visible: false, start: 10001, end: 11000},
+    {name: 'l12', visible: false, start: 11001, end: 12000},
+    {name: 'l13', visible: false, start: 12001, end: 13000},
+    {name: 'l14', visible: false, start: 13001, end: 14000},
+    {name: 'l15', visible: false, start: 14001, end: 15000},
+    {name: 'l16', visible: false, start: 15001, end: 16000},
+    {name: 'l17', visible: false, start: 16001, end: 17000},
+    {name: 'l18', visible: false, start: 17001, end: 18000},
+    {name: 'l19', visible: false, start: 18001, end: 19000},
+    {name: 'l20', visible: false, start: 19001, end: 20000},
+    {name: 'l21', visible: false, start: 20001, end: 21000},
+    {name: 'l22', visible: false, start: 21001, end: 22435}
 
 ]);
 

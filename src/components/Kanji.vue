@@ -1,5 +1,4 @@
 <script setup>
-import { reactive } from 'vue';
 import { store, display } from './store';
 import kanji from '../kanji.json';
 
@@ -28,8 +27,6 @@ function display_kanji(kanji) {
 </script>
     
 <template>
-    <!-- <div class="grid" v-for="kanji in kanji"> -->
-    <!-- <span>ID: {jisho1.id}</span> -->
     <div class="grid" v-for="kanji in kanji_filter" @click="display_kanji(kanji)">
         <div class="kanji-div">
             <span class="kanji">{{kanji.kanji}}</span>
@@ -47,9 +44,6 @@ function display_kanji(kanji) {
             </span>
         </div>
     </div>
-
-    <!-- </div> -->
-
 </template>
 
 <style scoped>
@@ -102,6 +96,4 @@ function display_kanji(kanji) {
     white-space: nowrap;
     font-size: 1.1rem;
 }
-
-
 </style>

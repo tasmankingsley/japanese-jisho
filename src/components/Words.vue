@@ -1,14 +1,11 @@
 <script setup>
-import { reactive } from 'vue';
 import { store, nav, list, display } from './store';
 import { get } from "firebase/database";
 import { db } from '../main';
 // import local_db from '../jmdict-eng-common.json';
 import localforage from 'localforage';
 
-
 let jisho;
-let jisho_filter = [];
 
 // for local testing
 // jisho = local_db;
@@ -48,11 +45,13 @@ if (jisho === null) {
 // If dictionary visible
 if (nav[2].visible) {
     let found_count = 0;
-    jisho_filter = [];
+    store.jisho_filter = [];
+    const re = new RegExp(store.search, 'i');
+    
 
     for (let i = 0; i < jisho.words.length; i++) {
-        if (jisho.words[i].sense[0].gloss[0].text === store.search) {
-            jisho_filter[found_count] = jisho.words[i];
+        if (re.test(jisho.words[i].sense[0].gloss[0].text)) {
+            store.jisho_filter[found_count] = jisho.words[i];
             found_count++;
         }
     }
@@ -62,16 +61,14 @@ if (nav[2].visible) {
 for (let l = 0; l < list.length; l++) {
     if (list[l].visible) {
         let count = 0;
-        jisho_filter = [];
+        store.jisho_filter = [];
 
         for (let i = list[l].start; i < list[l].end; i++) {
-            jisho_filter[count] = jisho.words[i];
+            store.jisho_filter[count] = jisho.words[i];
             count++;
         }
-    }
+    } 
 }
-
-console.log(jisho_filter);
 
 
 function display_word(jisho) {
@@ -81,14 +78,14 @@ function display_word(jisho) {
     console.log(display.jisho);
 }
 
+
 </script>
 
 <template>
 
 <div class="grid">
 
-<div class="word" v-for="jisho in jisho_filter" @click="display_word(jisho)">
-    <!-- <span>ID: {jisho1.id}</span> -->
+<div class="word" v-for="jisho in store.jisho_filter" @click="display_word(jisho)">
     <div class="kanji">
         <div v-for="(kanji, i) in jisho.kanji">
             <span v-if="i === 0">
@@ -118,7 +115,6 @@ function display_word(jisho) {
 </div>
 
 </div>
-
 
 </template>
 
@@ -191,9 +187,4 @@ span {
     padding: 2px;
 }
 
-.word:hover {
-    /* background-color: #fff; */
-    /* opacity: 0.9; */
-    /* cursor: pointer; */
-}
 </style>

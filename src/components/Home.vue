@@ -8,6 +8,8 @@ function toggle(num) {
   nav[num].visible = true;
   store.title = nav[num].name;
 }
+
+
 </script>
     
 <template>
@@ -33,15 +35,11 @@ function toggle(num) {
     border-radius: 5px;
     margin: 10px;
     font-size: 1.5rem;
-    /* gap: 10px; */
 }
 
 .menu-item:hover {
-    /* opacity: 0.9; */
     cursor: pointer;
     color: #99d2d4;
     background-color: #fff;
-    
 }
 </style>
-    

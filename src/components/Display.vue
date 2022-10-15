@@ -1,8 +1,6 @@
 <script setup>
 import { store, display } from './store';
 
-window.scrollTo(0, 0);
-
 let title_temp = store.title;
 store.title = display.jisho.kana[0].text;
 
@@ -46,7 +44,6 @@ function back() {
     background-color: #000;
     color: #fff;
     text-indent: 10px;
-    /* place-items: center; */
 }
 
 .label {
@@ -60,7 +57,6 @@ span {
 }
 
 .back {
-    /* width: 100%; */
     height: 50px;
     line-height: 43px;
     text-indent: 12px;

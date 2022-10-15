@@ -6,7 +6,6 @@ import Lists from './components/Lists.vue';
 import Kana from './components/Kana.vue';
 import Kanji from './components/Kanji.vue';
 import Words from './components/Words.vue';
-import Tabs from './components/Tabs.vue';
 import { store, nav } from './components/store';
 import Display from './components/Display.vue';
 import DisplayKanji from './components/DisplayKanji.vue';
@@ -14,12 +13,12 @@ import DisplayKanji from './components/DisplayKanji.vue';
 function toggle_nav() {
   nav[0].visible =  !nav[0].visible;
 }
+
+
 </script>
 
 <template>
-  <!-- <div v-show="nav[0].visible"> -->
-    <Nav/>
-  <!-- </div> -->
+  <Nav/>
 
   <div class="header">
     <span class="burger" @click="toggle_nav">{{!nav[0].visible ? '=' : '⤫'}}</span>

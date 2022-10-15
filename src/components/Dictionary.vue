@@ -2,12 +2,12 @@
 import { store } from './store';
 import { reactive } from 'vue';
 
-
 let search = reactive({val: ''});
 
 function search_dict() {
     store.search = search.val;
     console.log(store.search)
+
     store.words = true;
 }
 
@@ -16,13 +16,13 @@ function refresh() {
     store.words = false;
 }
 
-
 </script>
     
 <template>
 
 <div>
-    <input type="text" v-model="search.val" @keydown.enter="search_dict" @click="refresh" @keydown.delete="refresh" placeholder="search"/>
+    <input type="text" v-model="search.val" @keydown.enter="search_dict" @input="store.words = false;" @keydown.delete="store.words = false;" placeholder="search"/>
+    <span v-if="store.display === false" class="clear" @click="refresh">ⓧ</span>
 </div>
 
 </template>
@@ -43,6 +43,18 @@ input {
     font-size: 1.5rem;
     border-radius: 5px;
     border-style: none;
-    
+}
+
+.clear {
+    position: absolute;
+    right: 18px;
+    top: 62px;
+    font-size: 1.5rem;
+    color: #757575;
+}
+
+.clear:hover {
+    cursor: pointer;
+    color: #000;
 }
 </style>

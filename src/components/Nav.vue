@@ -61,8 +61,6 @@ function toggle(num) {
     grid-auto-flow: row;
     grid-template-rows: repeat(7, 100px);
     background-color: #0c0c12;
-    /* gap: 20px 0; */
-    /* text-align: left; */
 }
 
 span {
@@ -72,8 +70,6 @@ span {
     height: 100%;
     text-align: left;
     text-indent: 25%;
-    /* text-justify: distribute; */
-    /* border-bottom: #fff 1px solid; */
 }
 
 span:hover {

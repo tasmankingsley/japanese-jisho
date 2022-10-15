@@ -1,7 +1,6 @@
 <script setup>
 import { store, display } from './store';
 
-window.scrollTo(0, 0);
 
 let title_temp = store.title;
 store.title = 'Kanji';
@@ -52,13 +51,11 @@ function back() {
                         'onyomi'
                         'sense';
     grid-template-rows: 50px 300px 60px 60px 60px;
-    /* grid-auto-rows: 120px; */
     width: 100vw;
     height: 100vh;
     background-color: #000;
     color: #fff;
     text-indent: 10px;
-    /* place-items: center; */
 }
 
 .kanji {

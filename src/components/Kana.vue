@@ -34,13 +34,11 @@ let kana = reactive({
     grid-auto-flow: row;
     grid-auto-rows: 100px;
     grid-template-columns: repeat(5, 1fr);
-    /* row-gap: 10px; */
     place-items: center;
     background-color: #0c0c12;
     color: #fff;
     margin: 5px;
     border-radius: 5px;
-    /* width: 100%; */
 }
 
 .kana-type {
@@ -53,7 +51,6 @@ let kana = reactive({
 .kana {
     font-size: 3rem;
     color: #fff;
-    /* width: 100%; */
 }
 
 .kana-switch {
@@ -67,4 +64,3 @@ span {
 }
 
 </style>
-    
