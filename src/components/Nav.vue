@@ -42,13 +42,11 @@ function toggle(num) {
     color: #99d2d4;
     position: fixed;
     width: 300px;
-    height: calc(100vh - 54px);
+    height: calc(100vh - 50px);
     top: 50px;
     transition: width 0.3s;
     z-index: 3;
-    border-top: 2px solid #99d2d4;
     border-right: 2px solid #99d2d4;
-    border-bottom: 2px solid #99d2d4;
 }
 
 .v-enter-active,

@@ -16,10 +16,10 @@ function toggle(num) {
 <template>
 
 <div class="home-items">
-  <div class="menu-item" @click="toggle(2)">Dictionary</div>
+  <div class="menu-item first" @click="toggle(2)">Dictionary</div>
   <div class="menu-item" @click="toggle(3)">Word lists</div>
   <div class="menu-item" @click="toggle(4)">Kana table</div>
-  <div class="menu-item" @click="toggle(5)">Kanji table</div>
+  <div class="menu-item last" @click="toggle(5)">Kanji table</div>
   <!-- <div class="menu-item" @click="toggle(6)">Settings</div> -->
 </div>
 
@@ -28,32 +28,44 @@ function toggle(num) {
 
 <style scoped>
 .home-items {
-  background-color: #ef243c;
+  background-color: #e5e9f2;
   display: grid;
   grid-auto-flow: row;
-  grid-template-rows: repeat(5, 120px);
-  padding: 10px;
+  grid-template-rows: repeat(4, 100px);
   gap: 10px;
   justify-items: center;
-  height: calc(100vh - 70px);
+  align-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: calc(100vh - 50px);
 }
 .menu-item {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 120px;
-    background-color: #99d2d4;
+    height: 100px;
+    background-color: #dc3c44;
     color: #fff;
     text-align: center;
     border-radius: 5px;
     font-size: 1.5rem;
     width: 100%;
-    max-width: 500px;
+    max-width: 430px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.first {
+  border-radius: 100px 100px 5px 5px;
+}
+
+.last {
+  border-radius: 5px 5px 100px 100px;
 }
 
 .menu-item:hover {
     cursor: pointer;
-    color: #99d2d4;
-    background-color: #fff;
+    color: #000;
+    background-color: #99d2d4;
 }
 </style>

@@ -75,9 +75,9 @@ function loading() {
             <span>loading words...</span>
 
             <div v-if="store.fallback === true" class="fallback">
-              <span>first time database load</span><br/>
-              <span>getting database from server</span><br/>
-              <span>please wait...</span>
+              <span>Getting 35mb database from server</span><br/>
+              <span>this will only happen once</span><br/>
+              <span>please wait 🙏🏻</span>
             </div>
             
           </div>
@@ -118,6 +118,7 @@ function loading() {
   margin-right: auto;
   place-items: center;
   background-color: #dc3c44;
+  color: #fff;
 }
 
 .fallback {

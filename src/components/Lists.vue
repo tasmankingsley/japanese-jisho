@@ -46,7 +46,7 @@ function select_list(num) {
 
 <style scoped>
 .lists {
-  background-color: #ef243c;
+  background-color: #e5e9f2;
   display: grid;
   grid-auto-flow: row;
   padding: 10px;
@@ -58,18 +58,18 @@ function select_list(num) {
   justify-content: center;
   flex-direction: column;
   height: 80px;
-  background-color: #99d2d4;
+  background-color: #dc3c44;
   color: #fff;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 1.5rem;
   width: 100%;
-  max-width: 500px;
+  max-width: 430px;
 }
 
 .menu-item:hover {
   cursor: pointer;
-  color: #99d2d4;
-  background-color: #fff;
+  color: #000;
+  background-color: #99d2d4;
 }
 </style>
