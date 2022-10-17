@@ -15,52 +15,43 @@ function toggle(num) {
     
 <template>
 
-<div class="home-items">
-  <div class="menu-item first" @click="toggle(2)">Dictionary</div>
-  <div class="menu-item" @click="toggle(3)">Word lists</div>
-  <div class="menu-item" @click="toggle(4)">Kana table</div>
-  <div class="menu-item last" @click="toggle(5)">Kanji table</div>
-  <!-- <div class="menu-item" @click="toggle(6)">Settings</div> -->
+<div class="background">
+  <div class="home-items">
+    <div class="menu-item first" @click="toggle(2)">Dictionary</div>
+    <div class="menu-item" @click="toggle(3)">Word lists</div>
+    <div class="menu-item" @click="toggle(4)">Kana table</div>
+    <div class="menu-item last" @click="toggle(5)">Kanji table</div>
+    <!-- <div class="menu-item" @click="toggle(6)">Settings</div> -->
+  </div>
 </div>
 
 
 </template>
 
 <style scoped>
+.background {
+  background-color: #e5e9f2;
+}
 .home-items {
   background-color: #e5e9f2;
   display: grid;
   grid-auto-flow: row;
-  grid-template-rows: repeat(4, 100px);
-  gap: 10px;
+  grid-template-rows: repeat(4, 120px);
+  gap: 1px;
   justify-items: center;
   align-content: center;
-  padding-left: 10px;
-  padding-right: 10px;
   height: calc(100vh - 50px);
+  clip-path: circle(240px at center);
 }
 .menu-item {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    height: 100px;
+    display: grid;
+    align-items: center;
+    height: 100%;
     background-color: #dc3c44;
     color: #fff;
     text-align: center;
-    border-radius: 5px;
     font-size: 1.5rem;
     width: 100%;
-    max-width: 430px;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.first {
-  border-radius: 100px 100px 5px 5px;
-}
-
-.last {
-  border-radius: 5px 5px 100px 100px;
 }
 
 .menu-item:hover {
