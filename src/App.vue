@@ -110,7 +110,7 @@ function loading() {
   gap: 20px;
   max-width: max-content;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 5px;
   font-size: 1.5rem;
   font-weight: 400;
   margin-top: 100px;

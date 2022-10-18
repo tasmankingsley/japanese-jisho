@@ -33,7 +33,7 @@ let kana = reactive({
 
 <style scoped>
 .kana-table {
-    background-color: #ef243c;
+    background-color: #dc3c44;
     padding: 5px;
 }
 
@@ -68,7 +68,7 @@ let kana = reactive({
 .kana-switch {
     float: right; 
     margin-right: 5px; 
-    color: #d90429;
+    color: #b03036;
 }
 
 span {

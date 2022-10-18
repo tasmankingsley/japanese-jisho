@@ -18,7 +18,7 @@ function select_list(num) {
 <template>
 
 <div class="lists">
-  <div class="menu-item" @click="select_list(0)">{{list[0].start}}-{{list[0].end}}</div>
+  <div class="menu-item first" @click="select_list(0)">{{list[0].start}}-{{list[0].end}}</div>
   <div class="menu-item" @click="select_list(1)">{{list[1].start}}-{{list[1].end}}</div>
   <div class="menu-item" @click="select_list(2)">{{list[2].start}}-{{list[2].end}}</div>
   <div class="menu-item" @click="select_list(3)">{{list[3].start}}-{{list[3].end}}</div>
@@ -39,7 +39,7 @@ function select_list(num) {
   <div class="menu-item" @click="select_list(18)">{{list[18].start}}-{{list[18].end}}</div>
   <div class="menu-item" @click="select_list(19)">{{list[19].start}}-{{list[19].end}}</div>
   <div class="menu-item" @click="select_list(20)">{{list[20].start}}-{{list[20].end}}</div>
-  <div class="menu-item" @click="select_list(21)">{{list[21].start}}-{{list[21].end}}</div>
+  <div class="menu-item last" @click="select_list(21)">{{list[21].start}}-{{list[21].end}}</div>
 </div>
 
 </template>
@@ -50,7 +50,7 @@ function select_list(num) {
   display: grid;
   grid-auto-flow: row;
   padding: 10px;
-  gap: 10px;
+  gap: 1px;
   justify-items: center;
 }
 .menu-item {
@@ -61,15 +61,22 @@ function select_list(num) {
   background-color: #dc3c44;
   color: #fff;
   text-align: center;
-  border-radius: 10px;
   font-size: 1.5rem;
   width: 100%;
-  max-width: 430px;
+  max-width: 450px;
 }
 
 .menu-item:hover {
   cursor: pointer;
   color: #000;
   background-color: #99d2d4;
+}
+
+.first {
+  border-radius: 10px 10px 0px 0px;
+}
+
+.last {
+  border-radius:0px 0px 10px 10px;
 }
 </style>
