@@ -47,6 +47,8 @@ let kana = reactive({
     color: #fff;
     margin-top: 5px;
     border-radius: 10px;
+    height: calc(100vh - 100px);
+    overflow-y: scroll;
 }
 
 .grid:hover {
