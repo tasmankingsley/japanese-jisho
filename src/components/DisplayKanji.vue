@@ -50,7 +50,7 @@ function back() {
                         'kunyomi'
                         'onyomi'
                         'sense';
-    grid-template-rows: 50px 300px 60px 60px 60px;
+    grid-template-rows: 50px 300px 80px 80px 80px;
     width: 100vw;
     height: calc(100vh - 70px);
     background-color: #000;
