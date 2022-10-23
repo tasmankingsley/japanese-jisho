@@ -171,7 +171,7 @@ function display_word(jisho) {
 }
 
 .meaning {
-    display: flex;
+    display: inline-block;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -180,6 +180,8 @@ function display_word(jisho) {
 }
 
 .meaning-text {
+    display: inline-block;
+    width: 100%;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -191,7 +193,7 @@ function display_word(jisho) {
 }
 
 span {
-    padding: 2px;
+    /* padding: 2px; */
 }
 
 </style>

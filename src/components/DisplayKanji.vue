@@ -52,10 +52,12 @@ function back() {
                         'sense';
     grid-template-rows: 50px 300px 60px 60px 60px;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 70px);
     background-color: #000;
     color: #fff;
-    text-indent: 10px;
+    row-gap: 20px;
+    padding: 10px;
+    overflow-y: auto;
 }
 
 .kanji {
@@ -66,9 +68,9 @@ function back() {
 }
 
 .meaning {
-    text-overflow: ellipsis;
+    /* text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: nowrap; */
 }
 
 .kunyomi { grid-area: kunyomi; }
@@ -83,13 +85,16 @@ function back() {
 span {
     color: #fff; 
     font-size: 1.5rem;
+    line-height: 2.2rem;
 }
 
 .back {
     grid-area: back;
     height: 50px;
+    width: calc(100% - 20px);
+    border-radius: 5px;
     line-height: 43px;
-    text-indent: 12px;
+    text-indent: 10px;
     font-size: 2.5rem;
     color: #99d2d4;
 }

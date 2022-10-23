@@ -36,14 +36,16 @@ function back() {
 <style scoped>
 .grid {
     display: grid;
+    align-content: flex-start;
     position: fixed;
     grid-auto-flow: row;
-    grid-auto-rows: 80px;
+    row-gap: 20px;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 70px);
     background-color: #000;
     color: #fff;
-    text-indent: 10px;
+    padding: 10px;
+    overflow-y: auto;
 }
 
 .label {
@@ -54,12 +56,15 @@ function back() {
 span {
     color: #fff; 
     font-size: 1.5rem;
+    line-height: 2.2rem;
 }
 
 .back {
     height: 50px;
+    width: calc(100% - 20px);
+    border-radius: 5px;
     line-height: 43px;
-    text-indent: 12px;
+    text-indent: 10px;
     font-size: 2.5rem;
     color: #99d2d4;
 }
