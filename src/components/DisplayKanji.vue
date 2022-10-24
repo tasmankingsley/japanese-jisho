@@ -20,20 +20,24 @@ function back() {
 
     <div class="kanji">{{display.kanji.kanji}}</div>
 
-    <span class="meaning kunyomi">
-        <span style="color: #dc3c44;">Kunyomi: </span>
-        {{display.kanji.kunyomi_ja}}
-    </span>
+    <div class="meaning">
+        <span class="kunyomi">
+            <span style="color: #dc3c44;">Kunyomi: </span>
+            {{display.kanji.kunyomi_ja}}
+        </span>
 
-    <span class="meaning onyomi">
-        <span style="color: #dc3c44;">Onyomi: </span>
-        {{display.kanji.onyomi_ja}}
-    </span>
+        <span class="onyomi">
+            <span style="color: #dc3c44;">Onyomi: </span>
+            {{display.kanji.onyomi_ja}}
+        </span>
 
-    <span class="meaning sense">
-        <span style="color: #dc3c44;">Meaning: </span>
-        {{display.kanji.kmeaning}}
-    </span>
+        <span class="sense">
+            <span style="color: #dc3c44;">Meaning: </span>
+            {{display.kanji.kmeaning}}
+        </span>
+    </div>
+
+
 </div>
 
 </template>
@@ -47,10 +51,8 @@ function back() {
     grid-template-areas: 
                         'back'
                         'kanji'
-                        'kunyomi'
-                        'onyomi'
-                        'sense';
-    grid-template-rows: 50px 300px 80px 80px 80px;
+                        'meaning';
+    grid-template-rows: 50px 300px 1fr;
     width: 100vw;
     height: calc(100vh - 70px);
     background-color: #000;
@@ -68,9 +70,10 @@ function back() {
 }
 
 .meaning {
-    /* text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap; */
+    grid-area: meaning;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
 }
 
 .kunyomi { grid-area: kunyomi; }
