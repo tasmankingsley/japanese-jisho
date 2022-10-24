@@ -52,16 +52,29 @@ if (jisho === null) {
 // If dictionary visible
 if (nav[2].visible) {
     let found_count = 0;
+    let filtered_search = [];
     store.jisho_filter = [];
     const re = new RegExp(store.search, 'i');
     
 
     for (let i = 0; i < jisho.words.length; i++) {
         if (re.test(jisho.words[i].sense[0].gloss[0].text)) {
-            store.jisho_filter[found_count] = jisho.words[i];
+            filtered_search[found_count] = jisho.words[i];
             found_count++;
         }
     }
+
+    store.jisho_filter = filtered_search.map(item => {
+        let points = 0;
+
+        if (item.sense[0].gloss[0].text === store.search) {
+            points++;
+        }
+        return {...item, points};
+
+    }).sort((a, b) => b.points - a.points);
+
+    console.log(store.jisho_filter);
 }
 
 // for each list check if selected - if true, filter list with corresponding start/end points
@@ -190,10 +203,6 @@ function display_word(jisho) {
 .label {
     color: #dc3c44;
     font-size: 1rem;
-}
-
-span {
-    /* padding: 2px; */
 }
 
 </style>
